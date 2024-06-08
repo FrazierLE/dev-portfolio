@@ -1,4 +1,5 @@
 import { Box } from "@mui/material"
+import { useNavigate } from "react-router-dom"
 
 const style = {
   backgroundColor: '#556e53',
@@ -23,8 +24,9 @@ const style = {
 }
 
 const HomePage = () => {
+  const navigate = useNavigate()
   const exploreSite = () => {
-    console.log('click!')
+    navigate('/home')
   }
 
   return (

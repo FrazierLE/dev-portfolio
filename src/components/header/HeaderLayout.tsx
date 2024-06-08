@@ -1,8 +1,8 @@
 import NavigationMenu from "./NavigationMenu"
 
-const HeaderLayout = () => {
+const HeaderLayout = ({open, rotate} : {open: boolean, rotate: () => void}) => {
  return (<>
-    <NavigationMenu />
+    <NavigationMenu open={open} rotate={rotate} />
   </>)
 }
 
