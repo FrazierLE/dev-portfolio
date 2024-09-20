@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 const NavigationMenu = ({open, rotate} : {open: boolean, rotate: () => void}) => {
   const navigate = useNavigate()
+  const navigateToPage = (arg: string) => {
+    rotate()
+    navigate(`/${arg}`)
+  }
 
   return (
     <Stack alignItems={'flex-start'} width={'100%'}>
@@ -12,10 +16,10 @@ const NavigationMenu = ({open, rotate} : {open: boolean, rotate: () => void}) =>
         <Box sx={{paddingLeft: '10px', paddingTop: '11px'}} onClick={rotate}>{open ? <CgClose size={30} color="white" /> : <RxHamburgerMenu size={30} color="white"/>}</Box>
       </Stack>
       {open && 
-        <List sx={{backgroundColor: '#556e53', height: '67vh', position: 'absolute', marginTop: 5.90, width: '20vw'}}>
-          <ListItem onClick={() => navigate('/home')}>Home</ListItem>
-          <ListItem onClick={() => navigate('/projects')}>Projects</ListItem>
-          <ListItem onClick={() => navigate('/experience')}>Experience</ListItem>
+        <List sx={{backgroundColor: '#556e53', height: '60vh', position: 'absolute', marginTop: 5.90, width: '20vw', cursor: 'pointer'}}>
+          <ListItem onClick={() => navigateToPage('portfolio')}>Home</ListItem>
+          <ListItem onClick={() => navigateToPage('portfolio/projects')}>Projects</ListItem>
+          <ListItem onClick={() => navigateToPage('portfolio/experience')}>Experience</ListItem>
         </List>}
     </Stack>
   )

@@ -26,7 +26,7 @@ const style = {
 const HomePage = () => {
   const navigate = useNavigate()
   const exploreSite = () => {
-    navigate('/home')
+    navigate('/portfolio')
   }
 
   return (

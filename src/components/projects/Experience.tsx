@@ -1,5 +1,11 @@
+import { Stack } from "@mui/material";
+
 const Experience = () => {
-  return <>Experience</>
+  return (
+    <Stack>
+      EXPERIENCE
+    </Stack>
+  )
 }
 
 export default Experience;
