@@ -1,5 +1,5 @@
 const Info = () => {
-  return <>Info</>
-}
+  return <>Info</>;
+};
 
-export default Info
+export default Info;
