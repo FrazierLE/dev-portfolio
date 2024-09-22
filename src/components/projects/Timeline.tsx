@@ -1,69 +1,120 @@
-import { Stack, Box } from "@mui/material";
-import { GrNext, GrPrevious } from "react-icons/gr";
+import {
+  Stack,
+  Box,
+  Card,
+  CardHeader,
+  CardContent,
+  Typography,
+} from "@mui/material";
+// import { GrNext, GrPrevious } from "react-icons/gr";
 import { CiCircleChevDown, CiCircleChevUp } from "react-icons/ci";
 import { useState } from "react";
 
 const Timeline = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<undefined | number>(undefined);
   const strengthTrainingExperinece = [
+    {
+      company: "Gateway Ticketing Systems",
+      title: "Front End Developer II",
+      date: 'July 2023 - Present",'
+    },
+    {
+      company: "Third Culture Technology LLC",
+      title: "Freelance Front End Developer",
+      date: 'March 2023 - Present'
+    },
+    {
+      company: "Turing School of Software & Design",
+      title: "Front End Engineering Student",
+      date: 'August 2022 - March 2023'
+    },
     {
       company: "Summit Strong",
       title: "Strength & Conditioning Coach",
+      date: "July 2021 - Present",
     },
     {
       company: "Core Progression",
       title: "Personal Trainer",
+      date: "July 2021 - March 2022"
     },
     {
       company: "Michigan Elite Conditioning for Athletes",
       title: "Assistant Strength & Conditioning Coach",
+      date: "Sept 2020-June 2021"
     },
     {
       company: "STALTA",
       title: "Strength Coach",
+      date: "May 2017 - Sept 2020",
     },
   ];
   return (
-    <Stack width={"100%"} justifyContent={"center"} alignItems={"center"}>
+    <Stack width={"80%"} justifyContent={"center"} alignItems={"center"}>
       TIMELINE
-      <Stack direction={'row'} width={'100%'} alignItems={'center'}>
-        <div style={{ backgroundColor: "#d1d4c9", width: '100%', height: '1px' }}></div>
+      <Stack
+        direction={"row"}
+        width={"100%"}
+        alignItems={"center"}
+        overflow={"hidden"}
+        marginTop={50}
+        position={'absolute'}
+      >
+        <div
+          style={{ backgroundColor: "#d1d4c9", width: "15%", height: "1px" }}
+        ></div>
         {strengthTrainingExperinece.map((experience, index) => {
           return (
             <>
-            <Box onClick={() => setOpen(!open)} sx={{ cursor: 'pointer'}}>
-              {open ? <CiCircleChevDown color="#d1d4c9" size={30}/> : <CiCircleChevUp color="#d1d4c9" size={30}/>}
-            </Box>
-            <div style={{ backgroundColor: "#d1d4c9", width: '100%', height: '1px' }}></div>
-            {open && (
-              <Stack direction={"column"}>
-                <Box>{experience.company}</Box>
-                <Box>{experience.title}</Box>
+              <Stack direction={"row"} width={"10%"} alignItems={"center"}>
+                <div
+                  style={{
+                    backgroundColor: "#d1d4c9",
+                    width: "100%",
+                    height: "1px",
+                  }}
+                ></div>
+                <Box
+                  onClick={() =>
+                    setOpen((prev) => {
+                      if (prev === undefined) return index;
+                      return prev === index ? undefined : index;
+                    })
+                  }
+                  sx={{ cursor: "pointer" }}
+                >
+                  {open === undefined ? (
+                    <CiCircleChevDown color="#d1d4c9" size={30} />
+                  ) : (
+                    <CiCircleChevUp color="#d1d4c9" size={30} />
+                  )}
+                </Box>
               </Stack>
-            )}
+              {open === index && (
+                <Card
+                  sx={{
+                    margin: 1,
+                    width: "max-content",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flexDirection: "column",
+                  }}
+                >
+                  <CardHeader title={experience.company} />
+                  <CardContent>
+                    <Typography>{experience.title}</Typography>
+                    <Typography>{experience.date}</Typography>
+                  </CardContent>
+                </Card>
+              )}
             </>
-          )
+          );
         })}
+        <div
+          style={{ backgroundColor: "#d1d4c9", width: "15%", height: "1px" }}
+        ></div>
       </Stack>
-      {/* <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 2,
-          marginBottom: 2,
-          border: "2px solid #556e53",
-          flexDirection: "column",
-          borderRadius: 15,
-          width: 'max-content',
-          padding: 2,
-          cursor: "pointer",
-        }}
-        onClick={() => console.log("Company Clicked")}
-      >
-        <span>AUGUST</span>
-        <span>2022</span>
-      </Box> */}
     </Stack>
   );
 };
