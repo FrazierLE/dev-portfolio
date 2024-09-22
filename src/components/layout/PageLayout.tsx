@@ -24,6 +24,7 @@ const PageLayout = () => {
   const rotate = () => {
     setHamburgerOpen(!hamburgerOpen);
   };
+  
   return (
     <Stack
       direction={"column"}

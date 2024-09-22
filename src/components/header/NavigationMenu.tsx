@@ -22,7 +22,7 @@ const NavigationMenu = ({
         sx={{ backgroundColor: open ? "#556e53" : "#152a38" }}
         width={"20vw"}
       >
-        <Box sx={{ paddingLeft: "10px", paddingTop: "11px" }} onClick={rotate}>
+        <Box sx={{ paddingLeft: "10px", paddingTop: "11px", cursor: 'pointer' }} onClick={rotate}>
           {open ? (
             <CgClose size={30} color="white" />
           ) : (

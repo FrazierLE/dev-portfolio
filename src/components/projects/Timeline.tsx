@@ -11,12 +11,12 @@ import { CiCircleChevDown, CiCircleChevUp } from "react-icons/ci";
 import { useState } from "react";
 
 const Timeline = () => {
-  const [open, setOpen] = useState<undefined | number>(undefined);
-  const strengthTrainingExperinece = [
+  const [open, setOpen] = useState<undefined | number>(0);
+  const strengthTrainingExperience = [
     {
       company: "Gateway Ticketing Systems",
       title: "Front End Developer II",
-      date: 'July 2023 - Present",'
+      date: 'July 2023 - Present'
     },
     {
       company: "Third Culture Technology LLC",
@@ -50,72 +50,86 @@ const Timeline = () => {
     },
   ];
   return (
-    <Stack width={"80%"} justifyContent={"center"} alignItems={"center"}>
-      TIMELINE
-      <Stack
-        direction={"row"}
-        width={"100%"}
-        alignItems={"center"}
-        overflow={"hidden"}
-        marginTop={50}
-        position={'absolute'}
-      >
-        <div
-          style={{ backgroundColor: "#d1d4c9", width: "15%", height: "1px" }}
-        ></div>
-        {strengthTrainingExperinece.map((experience, index) => {
-          return (
-            <>
-              <Stack direction={"row"} width={"10%"} alignItems={"center"}>
+    <Stack width={"80%"} justifyContent={"center"} alignItems={"center"} direction={'column'} marginBottom={3} marginTop={10}>
+    {/* TIMELINE */}
+    <Stack
+      direction={"column"}
+      width={"100%"}
+      alignItems={"center"}
+    >
+      {strengthTrainingExperience.map((experience, index) => {
+        return (
+          <Stack key={index} direction={"column"} width={"50%"} alignItems={"center"} position={'relative'}>
+            {(index !== 0) && (
+              <div
+                style={{
+                  backgroundColor: "#d1d4c9",
+                  width: "1px",
+                  height: "50px",
+                }}
+              ></div>
+            )}
+            <Box
+              onClick={() =>
+                setOpen((prev) => {
+                  if (prev === undefined) return index;
+                  return prev === index ? undefined : index;
+                })
+              }
+              sx={{ position: "relative", zIndex: 1 }}
+            >
+              {open !== index ? (
+                <CiCircleChevDown color="#d1d4c9" size={30} style={{ cursor: 'pointer' }} />
+              ) : (
+                <CiCircleChevUp color="#556e53" size={30} style={{ cursor: 'pointer' }} />
+              )}
+            </Box>
+            {open === index && (
+              <Stack
+                direction={'column'}
+                width={'300px'}
+                height={'300px'}
+                alignItems={index % 2 ? 'flex-end' : 'flex-start'}
+                position={'absolute'}
+                top={0}
+                left={index % 2 === 0 ? '0' : '60%'}
+                zIndex={2}
+                sx={{ transform: index % 2 === 0 ? 'translateX(-25%)' : 'translateX(0)' }}
+              >
                 <div
                   style={{
-                    backgroundColor: "#d1d4c9",
-                    width: "100%",
-                    height: "1px",
+                    position: 'absolute',
+                    width: '40px',
+                    height: '1px', 
+                    backgroundColor: '#d1d4c9',
+                    top: index === 0 ? '5%' : '20%',
+                    left: index % 2 === 0 ? '100%' : '-13%', 
+                    transform: index % 2 === 0 ? 'translateY(-50%)' : 'translateY(-55%)',
                   }}
-                ></div>
-                <Box
-                  onClick={() =>
-                    setOpen((prev) => {
-                      if (prev === undefined) return index;
-                      return prev === index ? undefined : index;
-                    })
-                  }
-                  sx={{ cursor: "pointer" }}
-                >
-                  {open === undefined ? (
-                    <CiCircleChevDown color="#d1d4c9" size={30} />
-                  ) : (
-                    <CiCircleChevUp color="#d1d4c9" size={30} />
-                  )}
-                </Box>
-              </Stack>
-              {open === index && (
+                />
                 <Card
                   sx={{
-                    margin: 1,
-                    width: "max-content",
+                    margin: '10px 0 0', 
+                    width: "100%",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                     flexDirection: "column",
                   }}
                 >
-                  <CardHeader title={experience.company} />
+                  <CardHeader sx={{ textAlign: 'center' }} title={experience.company} />
                   <CardContent>
-                    <Typography>{experience.title}</Typography>
-                    <Typography>{experience.date}</Typography>
+                    <Typography textAlign={'center'}>{experience.title}</Typography>
+                    <Typography textAlign={'center'}>{experience.date}</Typography>
                   </CardContent>
                 </Card>
-              )}
-            </>
-          );
-        })}
-        <div
-          style={{ backgroundColor: "#d1d4c9", width: "15%", height: "1px" }}
-        ></div>
-      </Stack>
+              </Stack>
+            )}
+          </Stack>
+        );
+      })}
     </Stack>
+  </Stack>
   );
 };
 
