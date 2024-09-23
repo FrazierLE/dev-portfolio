@@ -1,7 +1,6 @@
 import App from "../components/App";
 import Projects from "../components/projects/Projects";
 import PageLayout from "../components/layout/PageLayout";
-import Experience from "../components/projects/Experience";
 import ErrorPage from "../components/ErrorPage";
 import Timeline from "../components/projects/Timeline";
 
@@ -21,10 +20,6 @@ const routes = [
       },
       {
         path: "/portfolio/experience",
-        element: <Experience />,
-      },
-      {
-        path: "/portfolio/timeline",
         element: <Timeline />,
       },
     ],

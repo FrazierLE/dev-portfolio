@@ -3,7 +3,6 @@ import FooterLayout from "../footer/FooterLayout";
 import HeaderLayout from "../header/HeaderLayout";
 import { Stack } from "@mui/material";
 import React from "react";
-import Experience from "../projects/Experience";
 import Projects from "../projects/Projects";
 import Timeline from "../projects/Timeline";
 
@@ -24,7 +23,7 @@ const PageLayout = () => {
   const rotate = () => {
     setHamburgerOpen(!hamburgerOpen);
   };
-  
+
   return (
     <Stack
       direction={"column"}
@@ -37,12 +36,11 @@ const PageLayout = () => {
       <HeaderLayout open={hamburgerOpen} rotate={rotate} />
       <Stack sx={mainStyle}>
         <Routes>
-          <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/timeline" element={<Timeline />} />
+          <Route path="/experience" element={<Timeline />} />
         </Routes>
+        <FooterLayout />
       </Stack>
-      <FooterLayout />
     </Stack>
   );
 };

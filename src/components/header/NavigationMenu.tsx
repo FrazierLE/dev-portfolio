@@ -22,7 +22,10 @@ const NavigationMenu = ({
         sx={{ backgroundColor: open ? "#556e53" : "#152a38" }}
         width={"20vw"}
       >
-        <Box sx={{ paddingLeft: "10px", paddingTop: "11px", cursor: 'pointer' }} onClick={rotate}>
+        <Box
+          sx={{ paddingLeft: "10px", paddingTop: "11px", cursor: "pointer" }}
+          onClick={rotate}
+        >
           {open ? (
             <CgClose size={30} color="white" />
           ) : (
@@ -46,9 +49,6 @@ const NavigationMenu = ({
             Projects
           </ListItem>
           <ListItem onClick={() => navigateToPage("portfolio/experience")}>
-            Experience
-          </ListItem>
-          <ListItem onClick={() => navigateToPage("portfolio/timeline")}>
             Timeline
           </ListItem>
         </List>

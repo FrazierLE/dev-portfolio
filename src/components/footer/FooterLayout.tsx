@@ -7,10 +7,11 @@ const FooterLayout = () => {
     <>
       <Stack
         direction={"row"}
-        justifyContent={"space-between"}
-        width={"80%"}
-        margin={2}
+        justifyContent={"space-around"}
+        width={"100%"}
         padding={2}
+        paddingBottom={10}
+        sx={{ backgroundColor: "#152a38" }}
       >
         <Info />
         <Contact />
