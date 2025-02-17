@@ -1,9 +1,10 @@
-import { Grid, Typography, Card } from "@mui/material";
-import { useState } from "react";
+import { Grid, Typography, Card, CardHeader, CardContent } from "@mui/material";
+import useProjects from "./useProjects";
 
 const cardStyle = {
   width: "100%",
   height: "200px",
+  minWidth: "350px",
   backgroundColor: "#f4f5f5",
   borderRadius: "5px",
   display: "flex",
@@ -21,7 +22,7 @@ const cardStyle = {
 };
 
 const Projects = () => {
-  const [view, setView] = useState("");
+const { view, setView, projectsArray } = useProjects()
   return (
     <Grid
       container
@@ -33,15 +34,34 @@ const Projects = () => {
       height={"auto"}
     >
       <Typography variant="h6">PROJECTS</Typography>
+      {projectsArray?.map((item, index) => (
       <Grid item container direction="column" width="50%" margin={1}>
-        <Card sx={cardStyle}>Project 1</Card>
+        <Card sx={cardStyle}>
+          <CardContent>
+            <CardHeader title={item.title} subheader={item.date} />
+            <Typography variant="body1">{item.description}</Typography>
+            <div>
+              {item.technologies && (
+                <Typography variant="body2">Technologies: {item.technologies}</Typography>
+              )}
+            </div>
+            <div>
+              {item.githubLink && (
+                <a href={item.githubLink} target="_blank" rel="noreferrer">
+                  Github
+                </a>
+              )}
+              {item.liveLink && (
+                <a href={item.liveLink} target="_blank" rel="noreferrer">
+                  Live
+                </a>
+              )}
+            </div>
+          </CardContent>
+          </Card>
       </Grid>
-      <Grid item container direction="column" width="50%" margin={1}>
-        <Card sx={cardStyle}>Project 2</Card>
-      </Grid>
-      <Grid item container direction="column" width="50%" margin={1}>
-        <Card sx={cardStyle}>Project 3</Card>
-      </Grid>
+
+      ))}
     </Grid>
   );
 };

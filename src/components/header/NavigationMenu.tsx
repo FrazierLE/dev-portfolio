@@ -1,7 +1,7 @@
-import { RxHamburgerMenu } from "react-icons/rx";
-import { CgClose } from "react-icons/cg";
-import { Box, List, ListItem, Stack } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { CgClose } from 'react-icons/cg';
+import { Box, List, ListItem, Stack } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const NavigationMenu = ({
   open,
@@ -17,38 +17,50 @@ const NavigationMenu = ({
   };
 
   return (
-    <Stack alignItems={"flex-start"} width={"100%"}>
+    <Stack alignItems={'flex-start'} width={'100%'}>
       <Stack
-        sx={{ backgroundColor: open ? "#556e53" : "#152a38" }}
-        width={"20vw"}
+        sx={{
+          backgroundColor: open ? '#556e53' : '#152a38',
+          borderTopRightRadius: 5,
+          borderTopLeftRadius: 5,
+          minWidth: {xs: '50%', sm: '50%', md: '25%', lg: '25%'},
+        }}
+        width={'10vw'}
       >
         <Box
-          sx={{ paddingLeft: "10px", paddingTop: "11px", cursor: "pointer" }}
+          sx={{
+            paddingLeft: '10px',
+            paddingTop: '11px',
+            cursor: 'pointer',
+          }}
           onClick={rotate}
         >
           {open ? (
-            <CgClose size={30} color="white" />
+            <CgClose size={30} color='white' />
           ) : (
-            <RxHamburgerMenu size={30} color="white" />
+            <RxHamburgerMenu size={30} color='white' />
           )}
         </Box>
       </Stack>
       {open && (
         <List
           sx={{
-            backgroundColor: "#556e53",
-            height: "60vh",
-            position: "absolute",
+            backgroundColor: '#556e53',
+            height: '20vh',
+            position: 'absolute',
             marginTop: 5.9,
-            width: "20vw",
-            cursor: "pointer",
+            // width: '10vw',
+            cursor: 'pointer',
+            borderBottomRightRadius: 5,
+            borderBottomLeftRadius: 5,
+            minWidth: {xs: '50%', sm: '50%', md: '25%', lg: '25%'},
           }}
         >
-          <ListItem onClick={() => navigateToPage("portfolio")}>Home</ListItem>
-          <ListItem onClick={() => navigateToPage("portfolio/projects")}>
+          <ListItem onClick={() => navigateToPage('portfolio')}>Home</ListItem>
+          <ListItem onClick={() => navigateToPage('portfolio/projects')}>
             Projects
           </ListItem>
-          <ListItem onClick={() => navigateToPage("portfolio/experience")}>
+          <ListItem onClick={() => navigateToPage('portfolio/experience')}>
             Timeline
           </ListItem>
         </List>
