@@ -1,4 +1,9 @@
 import { useState } from 'react';
+import ptLogo  from '../../assets/chatchpt_logo.png'
+import digistripLogo from '../../assets/i-logo.png'
+import gatewayLogo from '../../assets/gateway-logo.png'
+import world from '../../assets/around-the-world.png'
+import wrns from '../../assets/wnrs.png'
 const useProjects = () => {
   const [view, setView] = useState('');
 
@@ -9,7 +14,7 @@ const useProjects = () => {
       description:
         'GATEWAY - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna vel arcu dignissim tempus.',
       date: '2023-present',
-      image: '',
+      image: gatewayLogo,
       link: '',
       technologies: 'React, MaterialUI, Typescript, Storybook, Playwright',
       githubLink: '',
@@ -21,7 +26,7 @@ const useProjects = () => {
       description:
         'DIGISTRIP - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna vel arcu dignissim tempus.',
       date: 'July 2023-January 2024',
-      image: '',
+      image: digistripLogo,
       link: '',
       technologies: 'React, MaterialUI, Typescript, Jest',
       githubLink: '',
@@ -33,7 +38,7 @@ const useProjects = () => {
       description:
         'CAMI PT - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna vel arcu dignissim tempus.',
       date: 'Spring 2023',
-      image: '',
+      image: ptLogo,
       link: '',
       technologies: 'React, Tailwind, Typescript',
       githubLink: '',
@@ -43,11 +48,11 @@ const useProjects = () => {
       id: '4',
       title: 'Project 4',
       description:
-        'ATW - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna vel arcu dignissim tempus.',
-      date: '2023-present',
-      image: '',
+        'WANRS - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna vel arcu dignissim tempus.',
+      date: 'Spring 2023',
+      image: wrns,
       link: '',
-      technologies: 'React, Typescript, Figma, Cypress',
+      technologies: 'React, Javascript, Cypress',
       githubLink: '',
       liveLink: '',
     },
@@ -55,11 +60,11 @@ const useProjects = () => {
       id: '5',
       title: 'Project 5',
       description:
-        'WANRS - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna vel arcu dignissim tempus.',
-      date: 'July 2023-January 2024',
-      image: '',
+        'ATW - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna vel arcu dignissim tempus.',
+      date: 'Winter 2023',
+      image: world,
       link: '',
-      technologies: 'React, Javascript, Cypress',
+      technologies: 'React, Typescript, Cypress, GraphQL',
       githubLink: '',
       liveLink: '',
     },
