@@ -14,7 +14,7 @@ const FooterLayout = () => {
         sx={{ backgroundColor: '#152a38', borderTop: '1px solid #556e53' }}
       >
         <Info />
-        <Contact />
+        {/* <Contact /> */}
       </Stack>
     </>
   );

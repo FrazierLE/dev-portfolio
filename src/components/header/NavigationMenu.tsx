@@ -23,7 +23,7 @@ const NavigationMenu = ({
           backgroundColor: open ? '#556e53' : '#152a38',
           borderTopRightRadius: 5,
           borderTopLeftRadius: 5,
-          minWidth: {xs: '50%', sm: '50%', md: '25%', lg: '25%'},
+          minWidth: {xs: '50%', sm: '50%', md: '10%', lg: '10%'},
         }}
         width={'10vw'}
       >
@@ -49,11 +49,10 @@ const NavigationMenu = ({
             height: '20vh',
             position: 'absolute',
             marginTop: 5.9,
-            // width: '10vw',
             cursor: 'pointer',
             borderBottomRightRadius: 5,
             borderBottomLeftRadius: 5,
-            minWidth: {xs: '50%', sm: '50%', md: '25%', lg: '25%'},
+            minWidth: {xs: '50%', sm: '50%', md: '10%', lg: '10%'},
           }}
         >
           <ListItem onClick={() => navigateToPage('portfolio')}>Home</ListItem>

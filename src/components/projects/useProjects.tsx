@@ -1,18 +1,26 @@
 import { useState } from 'react';
-import ptLogo  from '../../assets/chatchpt_logo.png'
-import digistripLogo from '../../assets/i-logo.png'
-import gatewayLogo from '../../assets/gateway-logo.png'
-import world from '../../assets/around-the-world.png'
-import wrns from '../../assets/wnrs.png'
+import ptLogo from '../../assets/chatchpt_logo.png';
+import digistripLogo from '../../assets/i-logo.png';
+import gatewayLogo from '../../assets/gateway-logo.png';
+import world from '../../assets/around-the-world.png';
+import wrns from '../../assets/wnrs.png';
 const useProjects = () => {
-  const [view, setView] = useState('');
+  const [view, setView] = useState<number | null>(null);
+
+  const handleMouseOver = (index: number) => {
+    setView(index);
+  }
+
+  const handleMouseOff = () => {
+    setView(null)
+  }
 
   const projectsArray = [
     {
       id: '1',
-      title: 'Project 1',
+      title: 'Admin Portal & Webstore',
       description:
-        'GATEWAY - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna vel arcu dignissim tempus.',
+        'Admin portal & webstore for zoos, museums, botanical gardens, and theme parks',
       date: '2023-present',
       image: gatewayLogo,
       link: '',
@@ -22,9 +30,9 @@ const useProjects = () => {
     },
     {
       id: '2',
-      title: 'Project 2',
+      title: 'Digistrip',
       description:
-        'DIGISTRIP - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna vel arcu dignissim tempus.',
+        'Data visualization tool used for attorneys in trial for medical malpractice cases.',
       date: 'July 2023-January 2024',
       image: digistripLogo,
       link: '',
@@ -33,10 +41,10 @@ const useProjects = () => {
       liveLink: '',
     },
     {
-      id: '2',
-      title: 'Project 3',
+      id: '3',
+      title: 'CHatch',
       description:
-        'CAMI PT - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna vel arcu dignissim tempus.',
+        'Cami Hatch is a pelvic floor physical therapist in Denver who needed a website for her new practice.',
       date: 'Spring 2023',
       image: ptLogo,
       link: '',
@@ -46,9 +54,9 @@ const useProjects = () => {
     },
     {
       id: '4',
-      title: 'Project 4',
+      title: 'WNRS Project',
       description:
-        'WANRS - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna vel arcu dignissim tempus.',
+        'WNRS Project is a web application inspired by the card game "We\'re Not Really Strangers", and designed to deepen relational connections by encouraging emotional vulnerability through meaningful conversations.',
       date: 'Spring 2023',
       image: wrns,
       link: '',
@@ -58,9 +66,9 @@ const useProjects = () => {
     },
     {
       id: '5',
-      title: 'Project 5',
+      title: 'Around The World',
       description:
-        'ATW - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna vel arcu dignissim tempus.',
+        "Around The World is a world trivia game application testing the user's knowledge of capitals and flags.",
       date: 'Winter 2023',
       image: world,
       link: '',
@@ -74,6 +82,8 @@ const useProjects = () => {
     view,
     setView,
     projectsArray,
+    handleMouseOver,
+    handleMouseOff,
   };
 };
 
