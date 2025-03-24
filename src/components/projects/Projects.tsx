@@ -85,16 +85,16 @@ const Projects = () => {
               )}
               {view === index && (
                 <>
-                  <CardHeader title={item.title} />
-                  <Typography variant='body1'>{item.description}</Typography>
+                  <CardHeader title={item.title} sx={{ color: 'white' }}/>
+                  <Typography variant='body1' color='white'>{item.description}</Typography>
                   <div style={{ marginTop: '5px' }}>
                     {item.technologies && (
-                      <Typography variant='body2'>
+                      <Typography variant='body2' color='white'>
                         Technologies: {item.technologies}
                       </Typography>
                     )}
                   </div>
-                  <div>
+                  <div style={{color: 'white'}}>
                     {item.githubLink && (
                       <a
                         href={item.githubLink}
