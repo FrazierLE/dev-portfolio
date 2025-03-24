@@ -29,7 +29,7 @@ const cardStyle = {
 };
 
 const Projects = () => {
-  const { view, setView, projectsArray, handleMouseOff, handleMouseOver } =
+  const { view, projectsArray, handleMouseOff, handleMouseOver } =
     useProjects();
   return (
     <Grid
@@ -38,7 +38,7 @@ const Projects = () => {
       justifyContent={'center'}
       alignItems={'center'}
       marginBottom={3}
-      direction='column'
+      flexDirection={'column'}
       height={'auto'}
       sx={{ marginRight: '55px' }}
     >

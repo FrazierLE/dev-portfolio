@@ -9,11 +9,11 @@ const useProjects = () => {
 
   const handleMouseOver = (index: number) => {
     setView(index);
-  }
+  };
 
   const handleMouseOff = () => {
-    setView(null)
-  }
+    setView(null);
+  };
 
   const projectsArray = [
     {
@@ -80,7 +80,6 @@ const useProjects = () => {
 
   return {
     view,
-    setView,
     projectsArray,
     handleMouseOver,
     handleMouseOff,
