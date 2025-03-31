@@ -3,7 +3,7 @@ import AboutMeImage from '../../assets/GH.jpg'
 
 const cardStyle = {
   width: '50%',
-  height: '500px',
+  minheight: '500px',
   minWidth: '275px',
   backgroundColor: '#556e53',
   borderRadius: '5px',
@@ -13,12 +13,13 @@ const cardStyle = {
   transitionProperty: 'background-color',
   transitionDuration: '.5s',
   cursor: 'pointer',
-  padding: 1
+  padding: 1,
+  flexDirection: {xs: 'column', sm: 'column', md: 'row', lg: 'row'}
 };
 
 const AboutMe = () => {
   return (
-    <Stack width={'100%'} display={'flex'} alignItems={'center'}>
+    <Stack width={'100%'} display={'flex'} alignItems={'center'} marginBottom={5}>
       <Typography variant='h6' textAlign={'center'}>
         ABOUT ME
       </Typography>
