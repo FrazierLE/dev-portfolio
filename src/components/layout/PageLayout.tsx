@@ -5,6 +5,7 @@ import { Stack } from '@mui/material';
 import React from 'react';
 import Projects from '../projects/Projects';
 import Timeline from '../projects/Timeline';
+import AboutMe from '../home/AboutMe';
 
 const PageLayout = () => {
   const [hamburgerOpen, setHamburgerOpen] = React.useState(false);
@@ -38,6 +39,7 @@ const PageLayout = () => {
       <HeaderLayout open={hamburgerOpen} rotate={rotate} />
       <Stack sx={mainStyle}>
         <Routes>
+          <Route path='/' element={<AboutMe />} />
           <Route path='/projects' element={<Projects />} />
           <Route path='/experience' element={<Timeline />} />
         </Routes>

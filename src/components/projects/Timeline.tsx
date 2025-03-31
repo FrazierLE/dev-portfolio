@@ -13,6 +13,12 @@ const Timeline = () => {
   const [open, setOpen] = useState<undefined | number>(0);
   const [screenMode, setScreenMode] = useState<string>('desktop');
 
+  const handleMouseOver = (index: number) => {
+    setOpen(index);
+  };
+
+  const handleMouseOff = () => setOpen(undefined);
+
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 600px)');
 
@@ -117,12 +123,8 @@ const Timeline = () => {
               ></div>
             )}
             <Box
-              onClick={() =>
-                setOpen((prev) => {
-                  if (prev === undefined) return index;
-                  return prev === index ? undefined : index;
-                })
-              }
+              onMouseOver={() => handleMouseOver(index)}
+              onMouseOut={handleMouseOff}
               sx={{ position: 'relative', zIndex: 1 }}
             >
               {open !== index ? (
