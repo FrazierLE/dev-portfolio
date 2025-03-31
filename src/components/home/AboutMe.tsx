@@ -5,7 +5,7 @@ const cardStyle = {
   width: '50%',
   minheight: '500px',
   minWidth: '275px',
-  backgroundColor: '#556e53',
+  backgroundColor:"#152a38",
   borderRadius: '5px',
   display: 'flex',
   justifyContent: 'center',
